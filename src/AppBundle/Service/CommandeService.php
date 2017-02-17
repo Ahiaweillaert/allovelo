@@ -21,10 +21,21 @@ class CommandeService
      */
     private $em;
     
+    /**
+     * 
+     * @var float
+     */
+    private $tarif;
 
-    function __construct(\Doctrine\ORM\EntityManagerInterface $em)
+    function __construct(\Doctrine\ORM\EntityManagerInterface $em, $tarif)
     {
         $this->em = $em;
+        $this->tarif = $tarif;
+    }
+    
+    public function recupTarif()
+    {
+        return $this->tarif;
     }
 
     public function creerCommande($adresseReception, $adresseLivraison, $fraisLivraison, $distance, $user)

@@ -51,7 +51,7 @@
                 return path;
             }
 
-        function calculerDureeDistance()
+        function calculerDureeDistance(tarif)
             {
                 adrClient = document.getElementById('commande_client_adresseReception').value;
                 adrLivraison = document.getElementById('commande_client_adresseLivraison').value;
@@ -78,7 +78,7 @@
                         var dureeEnSecondes = elements.duration.value;
 
                         document.getElementById('commande_client_distance').value = distanceEnMetres;
-                        document.getElementById('commande_client_fraisLivraison').value = distanceEnMetres * 0.0025;
+                        document.getElementById('commande_client_fraisLivraison').value = distanceEnMetres * tarif;
 
                         document.getElementById('map').innerHTML = texte;
                     });
@@ -100,7 +100,7 @@
         <tr>
             <td>
 
-    <input type="button" onclick="calculerDureeDistance()" value="calculer la distance et le prix">
+    <input type="button" onclick="calculerDureeDistance({{tarif}})" value="calculer la distance et le prix">
     {{ form(monForm) }}
             </td>
             <td>
